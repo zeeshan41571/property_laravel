@@ -1,0 +1,554 @@
+body {
+    margin-top: 10px;
+}
+.shrink-0.flex.items-center {
+    width: 8%;
+}
+.app-logo {
+    max-width: 100%;
+}
+.main_wrapper {
+    max-width: 1600px;
+    width: 90%;
+    margin: auto;
+}
+
+.container {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 42px;
+}
+
+.logo_des {
+    display: flex;
+    flex-direction: column;
+    gap: 37px;
+}
+
+.main-logo {
+    max-width: 240px;
+    width: 100%;
+}
+
+.logo {
+    /* width: 117px; */
+    height: 117px;
+    border: 2px solid black;
+    text-align: center;
+    line-height: 117px;
+    max-width: 170px;
+}
+
+.desc {
+    width: 117px;
+    height: 117px;
+    border: 2px solid black;
+    text-align: center;
+    line-height: 117px;
+}
+
+.btn_inp {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+input#createnewform {
+    background-color: #de3b40;
+    padding: 5px 37px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+input#existinglink {
+    background-color: #de3b40;
+    padding: 5px 37px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+input#formlink {
+    font-size: 20px;
+    border-radius: 7px;
+    border: 2px solid gray;
+}
+
+/* .form_wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 209px;
+    max-width: 1600px;
+    width: 90%;
+    margin: auto;
+    flex-wrap: wrap;
+} */
+
+/* .main-logo {
+    width: 15%;
+} */
+
+.form_container_caption {
+    /* margin-top: 50px; */
+    line-height: 117px;
+    color: gray;
+}
+
+.form_container_time {
+    margin-left: auto;
+}
+
+table.table {
+    /* border: 2px solid gray; */
+    /* border-collapse: collapse; */
+    border-spacing: 0;
+    margin: auto;
+    /* border-radius: 1px; */
+    /* width: 100%; */
+}
+
+
+th,
+td {
+    border: 1px solid gray;
+}
+
+.form_container_time table th {
+    color: #727272;
+
+    /* border-radius: 10px !important; */
+    background-color: #ededed;
+    padding: 7px;
+}
+
+.form_container_time td {
+
+    /* border-radius: 10px !important; */
+    padding: 15px;
+}
+
+tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+}
+
+tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+}
+
+tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+
+.guest-data th {
+    padding: 7px;
+    font-size: 12px;
+}
+
+.guest-data input[type="text"] {
+    outline: none;
+    width: 97%;
+    /* padding: 6px 0; */
+    border: none;
+}
+
+.guest-data td {
+    padding: 0;
+}
+
+
+.guest-data {
+    margin-top: 30px;
+}
+
+.guest-data table.table {
+    /* border: 2px solid gray; */
+    /* border-collapse: collapse; */
+    border-spacing: 0;
+    /* border-radius: 1px; */
+    /* width: 100%; */
+    /* max-width: 80%; */
+    margin: auto;
+}
+
+td.btn-flex {
+    display: flex;
+    justify-content: center;
+    padding: 7px;
+    /* border: none; */
+}
+
+/* .row {
+    display: none;
+} */
+
+
+select#country {
+    padding: 9px 0px;
+    max-width: 126px;
+    width: 126px;
+    border: none;
+    outline: none;
+}
+
+
+.unique_link {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.uniqueUrl {
+    display: flex;
+}
+
+.uniqueUrlMsg {
+    border: 2px solid gray;
+    padding: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+input#uniqueLink {
+    max-width: 620px;
+    width: 612px;
+    /* height: 26px; */
+    font-size: 15px;
+    border: 1px solid gray;
+    border-radius: 8px 0px 0px 8px;
+    outline: none;
+    color: gray;
+    text-align: center;
+}
+
+button.copy {
+    padding: 8px;
+    border-radius: 0px 8px 8px 0px;
+    border: 1px solid gray;
+}
+
+.uniqueUrlBtn button {
+    padding: 5px 7px 5px 7px;
+    border-radius: 5px;
+    border: none;
+    background-color: #b2ffcc;
+}
+
+
+.owner_recp {
+    max-width: 1200px;
+    width: 960px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.owner_recp input[type="number"] {
+    max-width: 38px;
+    width: 38px;
+}
+
+.owner_recp table.table {
+    max-width: 771px;
+    width: 733px;
+}
+
+
+.ownerRelatedData td {
+    max-width: 85%;
+    width: 83%;
+}
+
+.ownerRelatedData input[type="text"] {
+    width: 100%;
+}
+
+
+table.detailOwner {
+    border-spacing: 0;
+}
+
+.detailOwner input[type="number"] {
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+.detailOwner input[type="text"] {
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+.detailOwner input[type="tel"] {
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+.ownerRecContainer {
+    /* display: flex; */
+    justify-content: center;
+    /* text-align: center; */
+    margin-top: 15px;
+    gap: 9%;
+}
+
+.detailOwner th,
+td {
+    padding: 6px;
+}
+
+
+.detailOwner th {
+    background-color: #ededed;
+}
+
+.owheading {
+    font-size: 21px;
+    font-weight: bold;
+    /* border: 2px solid gray; */
+    width: 23%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.heading {
+    font-size: 16px;
+    font-weight: bold;
+    border: 2px solid gray;
+    width: 40%;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+.ownerUrlHead {
+    margin-top: 15px;
+}
+
+input.ownLink {
+    width: 584px;
+}
+
+
+.ownerDBtn {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.OwnEMail {
+    padding: 5px 7px 5px 5px;
+    background-color: #b2ffcc;
+    border: none;
+    border-radius: 5px;
+}
+
+.btnCo {
+    border: none;
+    background-color: white;
+}
+
+input#ownLink {
+    /* max-width: 620px;
+    width: 612px; */
+    /* height: 26px; */
+    font-size: 15px;
+    /* border: 1px solid gray; */
+    /* border-radius: 8px 0px 0px 8px; */
+    outline: none;
+    color: gray;
+}
+
+
+.btnWraper {
+    display: flex;
+    /* justify-content: center; */
+    margin-top: 15px;
+    justify-content: space-around;
+    gap: 42%;
+}
+
+
+button#savebtn {
+    padding: 8px 42px 8px 42px;
+    font-weight: bold;
+    background-color: #379ae6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+
+button#btnprint {
+    padding: 8px 42px 8px 42px;
+    font-weight: bold;
+    background-color: #efb034;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+button#btnEmail {
+    padding: 8px 42px 8px 42px;
+    font-weight: bold;
+    background-color: #1dd75b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+button#btnClear {
+    padding: 8px 42px 8px 42px;
+    font-weight: bold;
+    background-color: #de3b40;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+
+.mulBtn {
+    display: flex;
+    gap: 14%;
+}
+
+.sideRecep table {
+    border-spacing: 0;
+}
+
+.sideRecep th {
+    background-color: #ededed;
+}
+
+.sideRecep th {
+    padding: 15px;
+}
+
+.sideRecep td {
+    padding: 6px;
+    /* text-align: center; */
+}
+
+.sideRecep input[type="text"] {
+    border: 1px solid !important;
+    border-radius: 5px;
+    border-color: #ededed !important;
+    outline: none;
+    width: 95%;
+}
+
+
+input#guestEmail {
+    border: none;
+    outline: none;
+}
+
+input#guestPhone {
+    border: none;
+    outline: none;
+}
+
+td.serialno {
+    text-align: center;
+}
+
+
+.headin {
+    font-size: 17px;
+    font-weight: bold;
+    /* border: 2px solid gray; */
+    width: 97%;
+    /* text-align: center; */
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.max-w-7xl.mx-auto.sm\:px-6.lg\:px-8 {
+    max-width: 1600px;
+    width: 1420px;
+}
+
+/* .rowIn {
+    display: none;
+} */
+
+
+input.guestEmail {
+    border: none;
+    outline: none;
+}
+
+input.guestPhone {
+    border: none;
+    outline: none;
+}
+.booking_details_btns {
+    display: flex;
+    gap: 1%;
+    margin-top: 2%;
+}
+/* Simple CSS for the popup */
+.popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 500px;
+}
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.close-popup {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+
+/* Guests form new css */
+.guest-info {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.guest-info input, .guest-info select {
+    border: 1px solid !important;
+    border-radius: 5px;
+    border-color: #ededed !important;
+}
+.line {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], select {
+    flex: 1;
+}

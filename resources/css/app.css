@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-left {
+    text-align: left;
+}
+.alignleft {
+    text-align: left;
+}

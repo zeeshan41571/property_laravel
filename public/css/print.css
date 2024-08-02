@@ -1,0 +1,199 @@
+/* New CSS for parkins */
+.liner p {
+    margin: 0;
+}
+.print-button {
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.liner {
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    padding-top: 2mm;
+    padding-bottom: 2mm;
+    margin-bottom: 10mm;
+    margin-top: 10mm;
+}
+
+.liner p {
+    margin-bottom: 0;
+    padding-top: 1mm;
+    padding-bottom: 1mm;
+}
+.col-5.right-text {
+    text-align: right;
+}
+.post-content hr {
+    display: block;
+    border: 1px solid #000;
+}
+
+.container.permit {
+    border: 1px solid #000;
+}
+
+.container.permit .row {
+    border-bottom: 1px solid #000;
+    padding-top: 2mm;
+}
+.print-button {
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.print-page-buttons {
+    text-align: center;
+}
+
+.print-page-buttons a {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: -5px;
+}
+.print-button:hover {
+    background-color: #0056b3;
+}
+.col-5.copy-reserve .circle, .col-5.copy-guest .circle {
+    height: 48mm;
+    border: 2px solid;
+    width: 50mm;
+    margin-top: 15mm;
+    border-radius: 50%;
+}
+
+.col-5.copy-reserve .linees, .col-5.copy-guest .linees {
+    margin-top: 20mm;
+}
+
+body.parkingcard-template-default.single.single-parkingcard.postid-53.logged-in.admin-bar.no-customize-support.wp-custom-logo.wp-embed-responsive {
+    padding-bottom: 50mm;
+}
+.container.permit .col-6 {
+    padding-left: 5mm;
+}
+
+footer.wp-block-template-part {
+    display: none;
+}
+body.parkingcard-template-default #footer {
+    display: none;
+}
+.Buttons-column  a.wp-block-button__link.wp-element-button {
+    background: #7d9ac4;
+    font-size: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+body.parkingcard-template-default #footer {
+    display: none;
+}
+.home main {
+    margin-top: 60px;
+}
+input.wpcf7-form-control {
+    height: 35px;
+    border: 1px solid #7292bf;
+    border-radius: 5px;
+    width: 100%;
+}body.parkingcard-template-default #header {
+    display: none !important;
+}
+
+body.parkingcard-template-default hr {
+    display: none;
+}
+select.wpcf7-form-control.wpcf7-select {
+    height: 35px;
+    border: 1px solid #7292bf;
+    border-radius: 5px;
+    display: inline-block;
+    background: #fff;
+    width: 100%;
+}
+
+input.wpcf7-form-control.wpcf7-submit.has-spinner {
+    margin-top: 15px;
+    font-size: 15px;
+    background: #7292bf;
+    color: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: auto;
+}
+@media print {
+    body {
+        width: 250mm;
+        height: 297mm;
+        margin: 0;
+        padding: 25mm;
+        font-size: 12pt;
+        font-family: Arial, sans-serif;
+    }
+    .max-w-7xl.mx-auto.px-4.sm\:px-6.lg\:px-8 {
+        display: none;
+    }
+    .print-page-buttons a {
+        display: none;
+    }
+    .print-button {
+        display: none;
+    }
+    h1 {
+        font-size: 24pt;
+        margin-bottom: 10mm;
+    }
+
+    h2 {
+        font-size: 18pt;
+        margin-bottom: 8mm;
+    }
+
+    p, .lead, ul {
+        margin-bottom: 6mm;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+   .row {
+        margin: 20mm 0; /* Add some vertical space between rows */
+    }
+
+    .col-6 {
+        padding: 30mm; /* Add padding inside the columns */
+    }
+
+    ul li {
+        margin-bottom: 4mm;
+    }
+
+    .container, .row, .col-12, .col-7, .col-5, .col-6 {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .line {
+        page-break-inside: avoid;
+    }
+
+    .container.permit {
+        page-break-inside: avoid;
+    }
+
+    .col-6.copy-reserve, .col-6.copy-guest {
+        page-break-inside: avoid;
+    }
+
+    @page {
+        size: A4;
+        margin: 0;
+    }
+}
