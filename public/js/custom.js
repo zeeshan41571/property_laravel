@@ -346,8 +346,8 @@ $(document).ready(function () {
         var rowCount = $('#insbody tr').length + 1;
         const newRowIns = `<tr id="rowIns" class="rowIn">
                                 <td class="sNo">${rowCount}</td>
-                                <td><input type="text" name="instruction[]" id="" required></td>                    
-                                <td class="deleteIns"><button type="button" onclick="delrowIns(this)"><i class="fa fa-times" aria-hidden="true"></i></button></td>
+                                <td><input type="text" name="instruction[]" id="" required></td>                  
+                                <td class="deleteIns"><button type="button" onclick="delrowIns(this)" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Remove</button></td>
                             </tr>`;
         $('#insbody').append(newRowIns);
     });

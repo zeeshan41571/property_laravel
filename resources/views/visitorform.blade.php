@@ -55,8 +55,8 @@
                                             <table class="table" style="width: 100%">
                                                 <thead>
                                                     <tr>
-                                                        <th>Arival</th>
-                                                        <th>Time of Arival</th>
+                                                        <th>Arrival</th>
+                                                        <th>Time of Arrival</th>
                                                         <th>Departure</th>
                                                         <th>Time of Departure</th>
                                                     </tr>
@@ -709,22 +709,19 @@
                                                 {{-- <button type="button" id="addNewGuest" class="btn btn-success"></button> --}}
                                             </table>
                                             <br>
-                                            <button type="button" id="newInstruction" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Add New</button>
+                                            <button type="button" id="newInstruction" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Add New Instruction</button>
                                         </div>
                                         <br>
                                         <div class="booking_details_btns">
                                             <div class="btnSave">
                                                 <button class="savebtn" type="submit" id="savebtn"><i class="fa fa-save" aria-hidden="true"></i>  Save</button>
+                                                <a href="{{ route('manageguest') }}" class="btn btn-warning"><i class="fa fa-remove" aria-hidden="true"></i> Cancel</a>
                                             </div>
                                         </div>
                              </div>
                         </form> 
                         <script>
                             $(document).ready(function() {
-                                var today = new Date().toISOString().split('T')[0];
-                                $('#arrival_date').attr('min', today);
-                                $('#departure_date').attr('min', today);
-
                                 $('#property_id_select').change(function() {
                                     var selectedPropertyId = $(this).val();
                                     $('#property_id_input').val(selectedPropertyId);
@@ -744,9 +741,10 @@
                                                 <input type="text" name="guestStreet[]" placeholder="Street" required>
                                                 <input type="text" name="guestStreet1[]" placeholder="Street 1" required>
                                                 <input type="text" name="guestStreet2[]" placeholder="Street 2" required>
-                                                <input type="text" name="guestPostal[]" placeholder="Postal" required>
+                                                
                                             </div>
                                             <div class="line">
+                                                <input type="text" name="guestPostal[]" placeholder="Postal" required>
                                                 <input type="text" name="guestCity[]" placeholder="City" required>
                                                 <select name="guestCountry[]" required>
                                                     <option value="Afghanistan">Afghanistan</option>
@@ -990,7 +988,7 @@
                                                                 <option value="Zimbabwe">Zimbabwe</option>
                                                 </select>
                                             </div>
-                                            <button type="button" class="removeGuest">Remove</button>
+                                            <button type="button" class="removeGuest btn btn-danger"><i class="fa fa-remove" aria-hidden="true"></i> Remove</button>
                                         </div>`;
                                     $('#guestContainer').append(guestInfoHtml);
                                 });

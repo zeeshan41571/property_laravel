@@ -20,7 +20,7 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th class="border text-left" style="text-align: left;">Title</th>
+                                <th class="border text-left" style="text-align: left;">Appartment No</th>
                                 <th class="border text-left" style="text-align: left;width: 200px;">Description</th>
                                 <th class="border text-left" style="text-align: left;">Location</th>
                                 <th class="border text-left" style="text-align: left;">Contact Person</th>

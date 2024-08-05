@@ -27,7 +27,7 @@ class PropertyController extends Controller
     {
         return view('properties.create');
     }
-
+    
     public function store(Request $request)
     {
         $request->validate([

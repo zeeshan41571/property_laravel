@@ -67,11 +67,6 @@
     margin-top: 15mm;
     border-radius: 50%;
 }
-
-.col-5.copy-reserve .linees, .col-5.copy-guest .linees {
-    margin-top: 20mm;
-}
-
 body.parkingcard-template-default.single.single-parkingcard.postid-53.logged-in.admin-bar.no-customize-support.wp-custom-logo.wp-embed-responsive {
     padding-bottom: 50mm;
 }
@@ -126,6 +121,10 @@ input.wpcf7-form-control.wpcf7-submit.has-spinner {
     padding-top: 10px;
     padding-bottom: 10px;
     height: auto;
+}
+.linees {
+    margin: 30px;
+    text-decoration: underline;
 }
 @media print {
     body {

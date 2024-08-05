@@ -62,16 +62,10 @@
                         </div>
                         <br>
                         <button type="submit" class="btn btn-primary"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
+                        <a href="{{ route('parkings.index') }}" class="btn btn-warning"><i class="fa fa-remove" aria-hidden="true"></i> Cancel</a>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        $(document).ready(function() {
-            var today = new Date().toISOString().split('T')[0];
-            $('#arrival_date').attr('min', today);
-            $('#departure_date').attr('min', today);
-        });
-    </script>
 </x-app-layout>

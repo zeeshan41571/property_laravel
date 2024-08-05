@@ -43,7 +43,29 @@
                 @endif
                 
                 @if(Auth::user()->roles->contains('name', 'admin') || Auth::user()->roles->contains('name', 'parking manager'))
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <!-- Main Menu Item with Dropdown -->
+                    <div x-data="{ open: false }" @mouseleave="open=false" class="hidden sm:-my-px sm:ms-10 sm:flex cursor-pointer">
+                        <div @mouseover="open = true" @click="open=!open" class="flex items-center cursor-pointer space-x-8">
+                            <x-nav-link :active="request()->routeIs('parkings.index') || request()->routeIs('owner-parkings.index')">
+                                {{ __('Manage Parking Cards') }}
+                            </x-nav-link>
+                        </div>
+
+                        <!-- Dropdown Menu -->
+                        <div x-show="open" @click.away="open = false" class="absolute mt-16 w-48 rounded-md shadow-lg z-20" style="margin-top: 65px;">
+                            <div class="rounded-md ring-1 ring-black ring-opacity-5 py-1 bg-white">
+                                <x-nav-link :href="route('parkings.index')" :active="request()->routeIs('parkings.index')" class="block px-4 py-2 text-sm text-gray-700">
+                                    {{ __('Manage Guest Parking Cards') }}
+                                </x-nav-link>
+                                <x-nav-link :href="route('owner-parkings.index')" :active="request()->routeIs('owner-parkings.index')" class="block px-4 py-2 text-sm text-gray-700">
+                                    {{ __('Manage Owner Parking Cards') }}
+                                </x-nav-link>
+                            </div>
+                        </div>
+                    </div>
+
+    
+                    {{-- <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                         <x-nav-link :href="route('owner-parkings.index')" :active="request()->routeIs('owner-parkings.index')">
                             {{ __('Manage Owner Parkings') }}
                         </x-nav-link>
@@ -52,7 +74,7 @@
                         <x-nav-link :href="route('parkings.index')" :active="request()->routeIs('parkings.index')">
                             {{ __('Manage Guest Parkings') }}
                         </x-nav-link>
-                    </div>
+                    </div> --}}
                 @endif
             </div>
             

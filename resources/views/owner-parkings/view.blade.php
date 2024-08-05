@@ -45,7 +45,7 @@
                 <h2>Parking Permit</h2>
                 <p>Car Color: {{ $owner_parking->car_color }}</p>
                 <p>Car Brand: {{ $owner_parking->car_brand }}</p>
-                <h4>Parking Spot: {{ $owner_parking->parking_spot }}</h4>
+                <h4>Parking Spot: {{ $owner_parking->parking_spot }} / {{ $owner_parking->apartment_number }}</h4>
                 <h4>Car License Plate: {{ $owner_parking->car_license_plate }}</h4>
                 @if($owner_parking->year)
                     <p>{{ $owner_parking->year }}</p>
@@ -55,7 +55,7 @@
                 <br>
                 <h3>Copy Reserve</h3>
                 <div class="circle"></div>
-                <div class="linees">---------------------------</div>
+                <div class="linees">Printed By : {{Auth::user()->name }}</div>
             </div>
         </div>
         <div class="row">
@@ -65,7 +65,7 @@
                 <h2>Parking Permit</h2>
                 <p>Car Color: {{ $owner_parking->car_color }}</p>
                 <p>Car Brand: {{ $owner_parking->car_brand }}</p>
-                <h4>Parking Spot: {{ $owner_parking->parking_spot }}</h4>
+                <h4>Parking Spot: {{ $owner_parking->parking_spot }} / {{ $owner_parking->apartment_number }}</h4>
                 <h4>Car License Plate: {{ $owner_parking->car_license_plate }}</h4>
                 @if($owner_parking->year)
                     <p>{{ $owner_parking->year }}</p>
@@ -75,7 +75,7 @@
                 <br>
                 <h3>Copy Owner</h3>
                 <div class="circle"></div>
-                <div class="linees">---------------------------</div>
+                <div class="linees">Printed By : {{ Auth::user()->name }}</div>
             </div>
         </div>
     </div>

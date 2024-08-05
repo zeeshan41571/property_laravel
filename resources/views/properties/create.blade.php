@@ -22,7 +22,7 @@
                         @csrf
                 
                         <div class="mb-4">
-                            <label for="title" class="block text-gray-700">Title:</label>
+                            <label for="title" class="block text-gray-700">Appartment No:</label>
                             <input type="text" id="title" name="title" class="w-full px-3 py-2 border rounded" required>
                         </div>
                 
@@ -53,6 +53,7 @@
                 
                         <div>
                             <button type="submit" class="btn btn-primary"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
+                            <a href="{{ route('properties.index') }}" class="btn btn-warning"><i class="fa fa-remove" aria-hidden="true"></i> Cancel</a>
                         </div>
                     </form>
                 </div>

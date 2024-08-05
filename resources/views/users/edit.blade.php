@@ -52,6 +52,7 @@
                         </div>
                         <br/>                
                         <button type="submit" class="btn btn-primary"><i class="fa fa-save" aria-hidden="true"></i> Update</button>
+                        <a href="{{ route('manage-users') }}" class="btn btn-warning"><i class="fa fa-remove" aria-hidden="true"></i> Cancel</a>
                     </form>
                 </div>
             </div>

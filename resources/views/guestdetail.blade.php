@@ -57,8 +57,8 @@
                     <table class="table-auto" width='100%'>
                         <thead>
                             <tr class="text-left">
-                                <th class="border px-4 py-2 text-left" style="text-align: left;">Arriavl</th>
-                                <th class="border px-4 py-2 text-left" style="text-align: left;">Arriavl Time</th>
+                                <th class="border px-4 py-2 text-left" style="text-align: left;">Arrival</th>
+                                <th class="border px-4 py-2 text-left" style="text-align: left;">Arrival Time</th>
                                 <th class="border px-4 py-2 text-left" style="text-align: left;">Departure</th>
                                 <th class="border px-4 py-2 text-left" style="text-align: left;">Departure Time</th>
                             </tr>
@@ -119,11 +119,12 @@
                         No instructions available.
                     @endif
                     <div class="booking_details_btns">
+                        <a href="{{ route('manageguest') }}" class="btn btn-warning text-white text-bold" style="font-weight: bold;"><i class="fa fa-remove" aria-hidden="true"></i> Return To Menu</a>
                         <div class="btnEmail">
-                            <button class="btnEmail" id="btnEmail">Email</button>
+                            <button class="btnEmail" id="btnEmail"><i class="fa fa-envelope" aria-hidden="true"></i> Email</button>
                         </div>
                         <div class="btnPrint">
-                            <button class="btnprint" id="btnprint">Print</button>
+                            <button class="btnprint" id="btnprint"><i class="fa fa-print" aria-hidden="true"></i> Print</button>
                         </div>
                     </div>
                 </div>
