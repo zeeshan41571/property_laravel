@@ -31,7 +31,7 @@
                     <table class="table-auto w-full">
                         <thead>
                             <tr>
-                                <th class="border px-2 py-2" style="text-align: left;">Title</th>
+                                <th class="border px-2 py-2" style="text-align: left;">Appartment No</th>
                                 <th class="border px-2 py-2" style="text-align: left;">Description</th>
                                 <th class="border px-2 py-2" style="text-align: left;">Location</th>
                                 <th class="border px-2 py-2" style="text-align: left;">Contact Person</th>

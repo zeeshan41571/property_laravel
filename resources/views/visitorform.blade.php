@@ -37,7 +37,7 @@
                     </table>
                     @else
                         <label for="property_id">Select Property:</label>
-                        <select id="property_id_select" name="property_id">
+                        <select id="property_id_select" required>
                             <option value="">Select a property</option>
                             @foreach ($properties as $property)
                                 <option value="{{ $property->id }}">{{ $property->title }}</option>
