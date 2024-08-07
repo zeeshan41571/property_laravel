@@ -42,14 +42,30 @@ class GuestController extends Controller
         $guestPostal = $request->input('guestPostal');
         $guestCity = $request->input('guestCity');
         $guestCountry = $request->input('guestCountry');
+        $documentType = $request->input('documentType');
+        $document_number = $request->input('documentNumber');
         $instruction = $request->input('instruction');
-
-
+        $documentImage1 = $request->input('documentImage1');
+        $documentImage2 = $request->input('documentImage2');
+        // dd($documentImage1);
         // Initialize an array to store guests data
         $guestsData = [];
 
         // Loop through each guest's data
         for ($i = 0; $i < count($guestName); $i++) {
+
+            $path1 = 'nil';
+            $path2 = 'nil';
+
+            // Check and store the first document image
+            if ($request->hasFile('documentImage1.'.$i)) {
+                $path1 = $request->file('documentImage1.'.$i)->store('documents');
+            }
+
+            // Check and store the second document image
+            if ($request->hasFile('documentImage2.'.$i)) {
+                $path2 = $request->file('documentImage2.'.$i)->store('documents');
+            }
             // Prepare guest data for the current iteration
             $guestData = [
                 'guestName' => $guestName[$i],
@@ -62,6 +78,10 @@ class GuestController extends Controller
                 'guestPostal' => $guestPostal[$i],
                 'guestCity' => $guestCity[$i],
                 'guestCountry' => $guestCountry[$i],
+                'document_type' => $documentType[$i],
+                'document_number' => $document_number[$i],
+                'document_image1' => $path1,
+                'document_image2'=>$path2,
                 // Add other fields as needed
             ];
 
@@ -82,14 +102,6 @@ class GuestController extends Controller
             'instruction' => $instruction,
             // Add other fields as needed
         ];
-
-        // Store guest data in the structured array
-        // $recpInsturction['instruction_' . ($j + 1)] = $recpInsturction;
-        // }
-
-
-
-
 
         // Structure the final array as per your desired format
         $dataToSave = [
@@ -136,7 +148,7 @@ class GuestController extends Controller
     public function show()
     {
         $showUser = Guest::all();
-        return view('manageguestform', compact('showUser'));
+        // return view('manageguestform', compact('showUser'));
     }
 
 

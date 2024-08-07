@@ -25,7 +25,7 @@
                         <h3 class="text-xl font-bold mb-4">Send Email</h3>
                         <form action="{{ route('generate.pdf') }}" method="POST">
                             @csrf
-                            <input type="hidden" id="bookingId" name="bookingId" value="{{ $guestDetail->id }}">
+                            <input type="hidden" id="bookingId" name="bookingId" value="{{ $booking->id }}">
                             <label for="role" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Send Email To:</label>
                             <select id="role" name="role" required class="rounded-none rounded-e-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm p-2.5 mb-4">
                                     <option value="owner">Owner</option>
@@ -72,10 +72,10 @@
                                 <th class="border px-4 py-2 text-left" style="text-align: left;">Departure Time</th>
                             </tr>
                         </thead>
-                            <td>{{ $guestDetail->arrival_date }}</td>
-                            <td>{{ $guestDetail->arrival_time }}</td>
-                            <td>{{ $guestDetail->departure_date }}</td>
-                            <td>{{ $guestDetail->departure_time }}</td>
+                            <td>{{ $booking->arrival_date }}</td>
+                            <td>{{ $booking->arrival_time }}</td>
+                            <td>{{ $booking->departure_date }}</td>
+                            <td>{{ $booking->departure_time }}</td>
                         <tbody>
                         </tbody>
                     </table>
@@ -97,30 +97,31 @@
                             </tr>
                           </thead>
                         <tbody>
-                            @php
-                                $guests_info = array_shift($guestsData);
-                            @endphp
-                            @foreach ($guests_info as  $guest)
+                            @foreach ($guestsData as  $guest)
                                 <tr>                                       
-                                    <td>{{ $guest['guestName'] }}</td>
-                                    <td>{{ $guest['guestSurName'] }}</td>
-                                    <td>{{ $guest['guestEmail'] }}</td>
-                                    <td>{{ $guest['guestPhone'] }}</td>
-                                    <td>{{ $guest['guestStreet'] }}</td>
-                                    <td>{{ $guest['guestStreet1'] }}</td>
-                                    <td>{{ $guest['guestStreet2'] }}</td>
-                                    <td>{{ $guest['guestPostal'] }}</td>
-                                    <td>{{ $guest['guestCity'] }}</td>
-                                    <td>{{ $guest['guestCountry'] }}</td>
+                                    <td>{{ $guest->guest_name }}</td>
+                                    <td>{{ $guest->guest_surname }}</td>
+                                    <td>{{ $guest->guest_email }}</td>
+                                    <td>{{ $guest->guest_phone }}</td>
+                                    <td>{{ $guest->guest_street }}</td>
+                                    <td>{{ $guest->guest_street1 }}</td>
+                                    <td>{{ $guest->guest_street2 }}</td>
+                                    <td>{{ $guest->guest_postal }}</td>
+                                    <td>{{ $guest->guest_city }}</td>
+                                    <td>{{ $guest->guest_country }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
                       </table>
                       <br/>
                       <h2 class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 hover:border-transparent rounded">Additional Instructions</h2>
-                      @if(!empty($recepInstruction['instruction']['instruction']))
+                      @php
+                        //   dd($recepInstruction);
+
+                      @endphp
+                      @if(!empty($recepInstruction['instructions']))
                         <ul class="list-group">
-                            @foreach($recepInstruction['instruction']['instruction'] as $instruction)
+                            @foreach($recepInstruction['instructions'] as $instruction)
                                 <li class="list-group-item">{{ trim($instruction) }}</li>
                             @endforeach
                         </ul>
@@ -128,7 +129,7 @@
                         No instructions available.
                     @endif
                     <div class="booking_details_btns">
-                        <a href="{{ route('manageguest') }}" class="btn btn-warning text-white text-bold" style="font-weight: bold;"><i class="fa fa-remove" aria-hidden="true"></i> Return To Menu</a>
+                        <a href="{{ route('bookings.index') }}" class="btn btn-warning text-white text-bold" style="font-weight: bold;"><i class="fa fa-remove" aria-hidden="true"></i> Return To Menu</a>
                         <div class="btnEmail">
                             <button class="btnEmail" id="btnEmail"><i class="fa fa-envelope" aria-hidden="true"></i> Email</button>
                         </div>

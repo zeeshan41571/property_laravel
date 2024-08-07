@@ -52,7 +52,7 @@
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')"><i class="fa fa-times" aria-hidden="true"></i> Delete</button>
                                             </form> |
-                                            <a href="{{ route('create-booking', $property->id) }}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Create Booking</a>
+                                            <a href="{{ route('bookings.create', $property->id) }}" class="btn btn-info"><i class="fa fa-plus" aria-hidden="true"></i> Create Booking</a>
                                         </td>
                                     </tr>
                                 @endforeach

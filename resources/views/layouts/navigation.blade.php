@@ -24,7 +24,7 @@
                     </div>
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('manage-users')" :active="request()->routeIs('manage-users')">
+                        <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                             {{ __('Manage Users') }}
                         </x-nav-link>
                     </div>
@@ -36,7 +36,7 @@
                         </x-nav-link>
                     </div>
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link :href="route('manageguest')" :active="request()->routeIs('manageguest')">
+                        <x-nav-link :href="route('bookings.index')" :active="request()->routeIs('bookings.index')">
                             {{ __('Manage Bookings') }}
                         </x-nav-link>
                     </div>

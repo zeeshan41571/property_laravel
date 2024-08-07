@@ -47,7 +47,7 @@
                     @endif
                     <br/>
                     <div class="main">
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="{{route('bookings.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <input id="property_id_input" type="hidden" name="property_id" value="{{ $id }}">
                             <div class="form_wrapper">
@@ -439,7 +439,7 @@
                                         <div class="booking_details_btns">
                                             <div class="btnSave">
                                                 <button class="savebtn" type="submit" id="savebtn"><i class="fa fa-save" aria-hidden="true"></i>  Save</button>
-                                                <a href="{{ route('manageguest') }}" class="btn btn-warning"><i class="fa fa-remove" aria-hidden="true"></i> Cancel</a>
+                                                <a href="{{ route('bookings.index') }}" class="btn btn-warning"><i class="fa fa-remove" aria-hidden="true"></i> Cancel</a>
                                             </div>
                                         </div>
                              </div>

@@ -36,10 +36,10 @@
                     </table>
                     <br/>
                     <div class="main">
-                        <form action="{{ url('/bookings/update-booking/' . $guest->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('bookings.update', $booking->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf 
                             @method('PUT')
-                            <input type="hidden" name="property_id" value="{{ $guest->property_id }}"> 
+                            <input type="hidden" name="property_id" value="{{ $booking->property_id }}"> 
                             <div class="form_wrapper">
                                         <div class="form_container_time">
                                             <table class="table" style="    width: 100%;">
@@ -54,10 +54,10 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td><input type="date" value="{{ $guest->arrival_date }}" name="arrival_date" id="" required></td>
-                                                        <td><input type="time" value="{{ $guest->arrival_time }}" name="arrival_time" id="" required></td>
-                                                        <td><input type="date" value="{{ $guest->departure_date }}" name="departure_date" id="" required></td>
-                                                        <td><input type="time" value="{{ $guest->departure_time }}" name="departure_time" id=""></td>
+                                                        <td><input type="date" value="{{ $booking->arrival_date }}" name="arrival_date" id="" required></td>
+                                                        <td><input type="time" value="{{ $booking->arrival_time }}" name="arrival_time" id="" required></td>
+                                                        <td><input type="date" value="{{ $booking->departure_date }}" name="departure_date" id="" required></td>
+                                                        <td><input type="time" value="{{ $booking->departure_time }}" name="departure_time" id=""></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -69,31 +69,27 @@
                                         <div class="form_container_time">
                                             <h2 class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 hover:border-transparent rounded">Guests Details</h2>
                                             <table class="table">
-                                                @php
-                                                    $guestsData = json_decode($guest->guestJsonData, true);
-                                                    $guest_info = array_shift($guestsData);
-                                                    $recepInstruction = json_decode($guest->instruction, true);
-                                                @endphp
                                                 <div id="guestContainer">
-                                                    @foreach ($guest_info as  $single_guest)
+                                                    @foreach ($guests as  $index => $single_guest)
                                                         <div class="guest-info" data-guest="1">
+                                                            <input type="hidden" name="guestId[{{ $index }}]" value="{{ $single_guest->id }}">
                                                             <div class="line">
-                                                                <input type="text" name="guestName[]" placeholder="Name" value="{{$single_guest['guestName']}}" required>
-                                                                <input type="text" name="guestSurName[]" placeholder="Surname" value="{{$single_guest['guestSurName']}}" required>
-                                                                <input type="email" name="guestEmail[]" placeholder="Email" value="{{$single_guest['guestEmail']}}" required>
-                                                                <input type="tel" name="guestPhone[]" placeholder="Phone" value="{{$single_guest['guestPhone']}}" required>
+                                                                <input type="text" name="guestName[{{ $index }}]" placeholder="Name" value="{{$single_guest->guest_name}}" required>
+                                                                <input type="text" name="guestSurName[{{ $index }}]" placeholder="Surname" value="{{$single_guest->guest_surname}}" required>
+                                                                <input type="email" name="guestEmail[{{ $index }}]" placeholder="Email" value="{{$single_guest->guest_email}}" required>
+                                                                <input type="tel" name="guestPhone[{{ $index }}]" placeholder="Phone" value="{{$single_guest->guest_phone}}" required>
                                                             </div>
                                                             <div class="line">
-                                                                <input type="text" name="guestStreet[]" placeholder="Street" value="{{$single_guest['guestStreet']}}">
-                                                                <input type="text" name="guestStreet1[]" placeholder="Street 1" value="{{$single_guest['guestStreet1']}}">
-                                                                <input type="text" name="guestStreet2[]" placeholder="Street 2" value="{{$single_guest['guestStreet2']}}">
+                                                                <input type="text" name="guestStreet[{{ $index }}]" placeholder="Street" value="{{$single_guest->guest_street }}">
+                                                                <input type="text" name="guestStreet1[{{ $index }}]" placeholder="Street 1" value="{{$single_guest->guest_street1}}">
+                                                                <input type="text" name="guestStreet2[{{ $index }}]" placeholder="Street 2" value="{{$single_guest->guest_street2}}">
                                                             </div>
                                                             <div class="line">
-                                                                <input type="text" name="guestPostal[]" placeholder="Postal" value="{{$single_guest['guestPostal']}}" required>
-                                                                <input type="text" name="guestCity[]" placeholder="City" value="{{$single_guest['guestCity']}}" required>
-                                                                <select name="guestCountry[]" required>
-                                                                    <option value="{{ $single_guest['guestCountry']}}">
-                                                                        {{$single_guest['guestCountry']}}
+                                                                <input type="text" name="guestPostal[{{ $index }}]" placeholder="Postal" value="{{$single_guest->guest_postal}}" required>
+                                                                <input type="text" name="guestCity[{{ $index }}]" placeholder="City" value="{{$single_guest->guest_city}}" required>
+                                                                <select name="guestCountry[{{ $index }}]" required>
+                                                                    <option value="{{ $single_guest->guest_country}}">
+                                                                        {{$single_guest->guest_country}}
                                                                     </option>
                                                                     <option value="Austria">Austria</option>
                                                                     <option value="Belgium">Belgium</option>
@@ -337,20 +333,20 @@
                                                                 </select>
                                                             </div>
                                                             <div class="line">
-                                                                <select name="documentType[]" class="documentType" required>
+                                                                <select name="documentType[{{ $index }}]" class="form-control documentType" required>
                                                                     <option value="">Select Document Type</option>
-                                                                    <option value="ID">ID</option>
-                                                                    <option value="Passport">Passport</option>
-                                                                    <option value="DNI">DNI</option>
+                                                                    <option value="ID" {{ $single_guest->document_type == 'ID' ? 'selected' : '' }}>ID</option>
+                                                                    <option value="Passport" {{ $single_guest->document_type == 'Passport' ? 'selected' : '' }}>Passport</option>
+                                                                    <option value="DNI" {{ $single_guest->document_type == 'DNI' ? 'selected' : '' }}>DNI</option>
                                                                 </select>
-                                                                <input type="text" name="documentNumber[]" placeholder="Document Number" required>
+                                                                <input type="text" name="documentNumber[{{$index}}]" placeholder="Document Number" value="{{$single_guest->document_number}}" required>
                                                                 <div class="documentUploads">
                                                                     <label class="documentLabel1">Document Image Front</label><br>
-                                                                    <input type="file" name="documentImage1[]" accept="image/*" required>
+                                                                    <input type="file" name="documentImage1[{{$index}}]" accept="image/*" required>
                                                                 </div>
                                                                 <div class="documentUploads">
                                                                     <label class="documentLabel2">Document Image Back</label><br>
-                                                                    <input type="file" name="documentImage2[]" accept="image/*" class="documentImage2">
+                                                                    <input type="file" name="documentImage2[{{$index}}]" accept="image/*" class="documentImage2">
                                                                 </div>
                                                             </div>
                                                             <button type="button" class="removeGuest btn btn-danger"> <i class="fa fa-times" aria-hidden="true"></i> Remove</button>
@@ -369,7 +365,7 @@
                                         </div>
                                         <div class="uniqueUrl">
                                             <div class="uniqueLinkIpt">
-                                                <input id="uniqueLink"  value="{{$guest->urlLink}}" type="text" readonly name="uniqueLink">
+                                                <input id="uniqueLink"  value="" type="text" readonly name="uniqueLink">
                                             </div>
                                             <div class="CoptBtn">
                                                 <button id="copyButton" type="button" class="copy"><i class="fa fa-files-o" aria-hidden="true"></i> Copy</button>
@@ -397,7 +393,7 @@
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
-                                                                    <td><input type="text" value="{{$guest->ownerUrlLink}}" class="ownLink" name="ownLink" id="ownLink"></td>
+                                                                    <td><input type="text" value="" class="ownLink" name="ownLink" id="ownLink"></td>
                                                                     <td><button class="btnCo" id="btnCoOwner"><i class="fa fa-files-o" aria-hidden="true"></i> Copy</button></td>
                                                                 </tr>
                                                             </tbody>
@@ -429,44 +425,46 @@
                                             
                                         </div>
                 
-                                        <div class="sideRecep">
-                                            <div class="headin">Reception Related Data</div>
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Sr#</th>
-                                                        <th>Instruction</th>
-                                                        <th>Actions</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="insbody">
-                                                    @php
-                                                        $inst_info = array_shift($recepInstruction);
-                                                        $shifted = array_shift($inst_info);
-                                                        $info_count = 1;
-                                                        //dd($inst_info);
-                                                    @endphp
-                                                    @foreach ($shifted as $info)
-                                                        <tr id="rowIns" class="rowIn">
-                                                            <td class="sNo">{{$info_count}}</td>
-                                                            <td><input type="text" value="{{$info}}" name="instruction[]" id=""></td>
-                                                            <td class="deleteIns"><button type="button" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Remove</button></td>
-                                                        </tr>
-                                                        @php
-                                                            $info_count++;
-                                                        @endphp
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                            <br>
-                                            <button type="button" id="newInstruction" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Add New Instruction</button>
-                                        </div>
-                                        <br>
-                                        <div class="btnSave">
-                                            <button class="savebtn btn btn-primary" type="submit" id="savebtn"><i class="fa fa-save" aria-hidden="true"></i> Update</button>
-                                            <a href="{{ route('manageguest') }}" class="btn btn-warning"><i class="fa fa-remove" aria-hidden="true"></i> Cancel</a>
-                                        </div>
-                             </div>
+                                <div class="sideRecep">
+                                    <div class="headin">Reception Related Data</div>
+                                    @php
+                                        $recepInstruction = json_decode($booking->instructions, true);
+                                    @endphp
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Sr#</th>
+                                                <th>Instruction</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="insbody">
+                                            @php
+                                                $inst_info = array_shift($recepInstruction);
+                                                $info_count = 1;
+                                                //dd($inst_info);
+                                            @endphp
+                                            @foreach ($inst_info as $info)
+                                                <tr id="rowIns" class="rowIn">
+                                                    <td class="sNo">{{$info_count}}</td>
+                                                    <td><input type="text" value="{{$info}}" name="instruction[]" id=""></td>
+                                                    <td class="deleteIns"><button type="button" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Remove</button></td>
+                                                </tr>
+                                                @php
+                                                    $info_count++;
+                                                @endphp
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                    <br>
+                                    <button type="button" id="newInstruction" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Add New Instruction</button>
+                                </div>
+                                <br>
+                                <div class="btnSave">
+                                    <button class="savebtn btn btn-primary" type="submit" id="savebtn"><i class="fa fa-save" aria-hidden="true"></i> Update</button>
+                                    <a href="{{ route('bookings.index') }}" class="btn btn-warning"><i class="fa fa-remove" aria-hidden="true"></i> Cancel</a>
+                                </div>
+                            </div>
                         </form> 
                     </div>
                 </div>
